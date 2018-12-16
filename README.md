@@ -65,5 +65,25 @@ function TrovaMails(cerca, labels, nolabels, actions) {
 ```
 ## Search and Merge related email
 When the document presents some formal errors, the Government refuse it with a message and a short explanation.
+
 Sounds OK, but you don't have any other information about the original document BUT the file name (that have to be composed by your code + a counter).
 > So, having the original message AND the invoice document would be nice, definitely.
+Function gscarti does exactly that:
+
+> Finds the refusals and return in msgs the messages
+```
+var cerca='in:inbox subject:(POSTA CERTIFICATA: Notifica di scarto) -label:processed '; var resp='';
+    var msgs=TrovaMails(cerca, ["processed"],null, ["archive"]);
+```    
+> for each refusals finds the original message and stars it
+```
+ var cercaInvio='is:sent has:attachment to:'+PECSDI+' '+nomefile;
+ var msgs2=TrovaMails(cercaInvio,["scartate"],null, ["star"]);
+```  
+> and merges main content and attchments
+```
+    newmailBody=newmailBody+'----------------------'+msgs2[0].getBody();
+    var newAtt=msgs2[0].getAttachments();
+     for (var aa = 0 ; aa < newAtt.length; aa++) { newmailAllegati.push(newAtt[aa]); }
+```  
+
