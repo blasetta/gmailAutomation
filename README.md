@@ -75,15 +75,40 @@ Function gscarti does exactly that:
 var cerca='in:inbox subject:(POSTA CERTIFICATA: Notifica di scarto) -label:processed '; var resp='';
     var msgs=TrovaMails(cerca, ["processed"],null, ["archive"]);
 ```    
-> for each refusals finds the original message and stars it
+> for each refusal finds the original message and stars it
 ```
  var cercaInvio='is:sent has:attachment to:'+PECSDI+' '+nomefile;
  var msgs2=TrovaMails(cercaInvio,["scartate"],null, ["star"]);
 ```  
-> and merges main content and attchments
+> and merges main content and attachments
 ```
     newmailBody=newmailBody+'----------------------'+msgs2[0].getBody();
     var newAtt=msgs2[0].getAttachments();
      for (var aa = 0 ; aa < newAtt.length; aa++) { newmailAllegati.push(newAtt[aa]); }
 ```  
 
+## REPORT!
+User terror: "I am going to lose something, for sure!"....
+So a nice Report with all the movements of the last month would be useful. Here we are!
+> All the data is written into the JReport js Object
+
+> First loop for the Invoices
+```  
+var searchstring= 'is:sent has:attachment to:'+PECSDI+' newer:' +unmesefa;
+var msgs1=TrovaMails(searchstring);
+```  
+> Second loop for notification and the Object will be updated
+```  
+searchstring= 'from:'+PECSDI+' subject:(notifica || mancata)  newer:' +unmesefa;
+var msgs2=TrovaMails(searchstring);
+```  
+
+> At the end the Object is transformed in HTML and put a mail content and attachment
+```  
+var hBody='';
+    for(var fn in JReport) {
+        var JR=JReport[fn];
+        hBody+='<tr><td><b>'+fn+'</b></td><td>'+JR.subject+'</td><td>'+JR.sent||''+'</td><td>'+JR.esito||''+'</td><td>'+JR.dataesito||''+'</td></tr>'
+    }
+```  
+GScript is not ES6 compliant (incredibly). The code would be nicer and clearer.
