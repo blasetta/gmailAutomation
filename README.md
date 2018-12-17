@@ -13,17 +13,18 @@ If you want to do something more complex, you open the dropdown menu like in the
 all this selections may be supplied as text.   
 ![Search mask](https://cms-assets.tutsplus.com/uploads/users/988/posts/27445/image/Gmail-search(1).jpg)
 
-[Laura Spencer explains everything ](https://business.tutsplus.com/tutorials/how-to-search-your-emails-in-gmail--cms-27445) and  [here the official site](https://support.google.com/mail/answer/7190?hl=en)
+[Laura Spencer explains everything ](https://business.tutsplus.com/tutorials/how-to-search-your-emails-in-gmail--cms-27445) and  [here there is Gmail help](https://support.google.com/mail/answer/7190?hl=en)
 
 ### Labelling
 Labelling is the easiest way to classify. Label=TAG. The same stuff of Twitter. You decide the label and they magically appear on the menu on the left side. 
 
 ### What the hell is archiving?
-When you manage automated email, their number may became overwhelming. If you don't to see them in your inbox, but without deleting them, the solution is archiving.
+When you manage automated email, their number may became overwhelming. If you don't want to see them in your inbox, but without deleting them, the solution is archiving. They remain searchables and in the "All Mails" section.
 
 ## Search and Classify with code
 The procedure "FindMails" will let you find a precise set of messages and label or activate some action on them. The labels are supplied as text and created automatically if they don't already exist. 
 Moreover you can mark them as important, or with stars or you may archive them.
+It returns an array with all the found messages (not threads!).
 
 ```javascript
 
