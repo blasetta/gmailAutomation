@@ -1,4 +1,4 @@
-# gmailAutomation
+# Gmail Automation....
 ```Automate Gmail for Invoices via Secure Email```
 
 With 1,2 Billion users (probably underestimated) Gmail is one of the most popular email services. It has a huge set of functions and lets you search tour emails like a datastore.
