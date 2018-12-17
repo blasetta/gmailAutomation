@@ -52,6 +52,7 @@ function TrovaMails(cerca, labels, nolabels, actions) {
             else if (actions[x]=="unread") msg.markUnread();
             else if (actions[x]=="star") msg.star();
             else if (actions[x]=="unstar") msg.unstar();
+            //else  if (msg[actions[x]]) msg[actions[x](); works but dangerous commented ...as you like ;)
         }
 
     }}
