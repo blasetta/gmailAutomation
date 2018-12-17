@@ -32,7 +32,7 @@ function Report() {
 
     for (var i1 = 0 ; i1 < msgs1.length; i1++) {
         var currmsg=msgs1[i1];
-        // attachment bane
+        // attachment nane
         var nomefile=currmsg.getAttachments()[0].getName()||'noname';
         if (!JReport[nomefile]) JReport[nomefile]={};
         var JR = JReport[nomefile];
@@ -119,7 +119,7 @@ function gScarti() {
         else {
             var cercaInvio='is:sent has:attachment to:'+PECSDI+' '+nomefile;
 
-            /* Trova la mail mandata con quel numero di documento */
+            /* Find the mail with that document numeber */
             var msgs2=TrovaMails(cercaInvio,["scartate"],null, ["star"]);
             Logger.log(' Mail inviate con allegato Originali   '+msgs2.length); resp+=' Mail inviate con allegato Originali   '+msgs2.length;
             if (msgs2.length>0) {
